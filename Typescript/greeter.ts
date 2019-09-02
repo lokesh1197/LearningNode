@@ -24,5 +24,5 @@ let student = new Student("Lokesh", "", "Mohanty");
 
 console.log(student);
 console.log(greeter(user));
-console.log(greeter(userNo));
+// console.log(greeter(userNo)); // Returns error
 console.log(greet({firstname: "Lokesh", lastname: "Mohanty"}));
