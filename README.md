@@ -19,5 +19,5 @@
 
 # Project Failures
   1. [learnyounode](https://github.com/workshopper/learnyounode)
-    i. Exercises 10 
-    ii. Exercises 13 
+    1. Exercises 10 
+    2. Exercises 13 

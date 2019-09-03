@@ -1,18 +1,20 @@
-Install Typescript:
+## Install Typescript:
   - `npm install -g typescript`
 
-Run typescript file:
+## Run typescript file:
   - `tsc <filename>`
   - It creates a .js file from the .ts file
   - Extension of the ts file is '.ts'
 
-Files created:
+## Files created:
   - `greeter.js` is the .js file created from `greeter.ts`
 
-Documentation:
+## Documentation:
   - [https://www.typescriptlang.org/docs/home.html]
 
-Some Tips:
+## Some Tips:
+
+### Basic Types:
   - Boolean: `let isDone: boolean = false;`
   - decimal, hex, binary, octal -> `number`
   - Array: `number[]`/`string[]``...` or `Array<number>`
@@ -40,3 +42,9 @@ Some Tips:
       - `let value: any = "This is a String";` then ,
         we can write `let strLength: number = (<string>value).length;` or 
         `let strLength: number = (value as string).length;`
+
+### Miscellaneous
+
+  - `readonly` is used for properties while `const` is used for variables
+  - `interface` can extend to multiple interfaces or classes
+  - when an `interface` extends to a class only the class's subclasses can implement the interface
