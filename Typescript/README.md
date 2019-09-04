@@ -2,7 +2,7 @@
   - `npm install -g typescript`
 
 ## Run typescript file:
-  - `tsc <filename>`
+  - `tsc <filename>`. For es5, run `tsc --target es5 <filename>`. `--target` can be replace by `-t`.
   - It creates a .js file from the .ts file
   - Extension of the ts file is '.ts'
 
@@ -43,8 +43,35 @@
         we can write `let strLength: number = (<string>value).length;` or 
         `let strLength: number = (value as string).length;`
 
+### Generics
+  - Generics are similar to template in C++
+  - Examples:
+    - `interface GenericIdentityFn<T> {
+        (arg: T): T;
+      }
+      function identity<T>(arg: T): T {
+        return arg;
+      }
+      let myIdentity: GenericIdentityFn<number> = identity;`
+    - `class GenericNumber<T> {
+        zeroValue: T;
+        add: (x: T, y: T) => T;
+      }`
+  - Constraints(like methods and properties) can be added by extending T to an interface/class
+  - Using generic class types:
+    - `function create<T>(c: new() => T): T {
+        return new c();
+      }`
+    - `function create<T>(c: { new(): T; }): T {
+        return new c();
+      }`
+
 ### Miscellaneous
 
   - `readonly` is used for properties while `const` is used for variables
   - `interface` can extend to multiple interfaces or classes
   - when an `interface` extends to a class only the class's subclasses can implement the interface
+  - `abstract` classes are base classes that cannot be instantiated. They can contain abstract
+    methods.
+  - Rest parameters are the parameters in function definition using spread operator. They are
+    optional and stored as an array.

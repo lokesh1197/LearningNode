@@ -28,33 +28,48 @@ myFunc = function(src: string, sub: number): boolean {    // type need not be me
 }
 
 
+// Function overload (In this example, argument other than number and string[] will return error)
+function pickRandom(x: number): number;
+function pickRandom(x: string[]): string;
+function pickRandom(x): any {
+  if (typeof x == "number") return Math.random()*x;
+  if (typeof x == "object") return x[Math.floor(Math.random()*x.size)];
+}
+
+
 // Defining interface class
 interface SomeClass {
   time: Date;
   setTime(d: Date): void;
 }
 interface SomeClassConstructor {
-  new (hour: number, min: number);
+  new (hour: number, min: number, sec: number);
 }
 // class Clock implements SomeClass {
 //   time: Date = new Date();
 //   setTime(d: Date) {}
-//   constructor(h: number, m: number) {};
+//   constructor(h: number, m: number, s:number) {};
 // }
 const Clock: SomeClassConstructor = class Clock implements SomeClass {
-  constructor(h: number, min: number) {}
+  constructor(readonly h: number, public min: number, s: number) {}
+  static zero = 0;
   time: Date = new Date();
   setTime(d: Date) {};
+  get zero() {
+    return Clock.zero;
+  }
 };
-// function createClock(ctor: SomeClassConstructor, h: number, min: number): SomeClass{
-//   return new ctor(h, min);
+let newClock = new Clock(21, 8, 9);
+console.log(newClock);
+// function createClock(ctor: SomeClassConstructor, h: number, min: number, s:number): SomeClass{
+//   return new ctor(h, min, s);
 // }
 // class Clock implements SomeClass {
-//   constructor(h: number, m: number) {}
+//   constructor(h: number, m: number, s:number) {}
 //   time: Date = new Date();
 //   setTime(d:Date) {}
 // }
-// let newClock = createClock(Clock, 21, 8);
+// let newClock = createClock(Clock, 21, 8, 1);
 
 
 // Interface extending Class
