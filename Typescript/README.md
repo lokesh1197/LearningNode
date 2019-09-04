@@ -21,12 +21,18 @@
   - Tuple: `[string, number]`
   - Accessing non-existing elements returns error
   - Enum: Eg:
-              - `enum Color {Red, Green, Blue}
-                 let c: Color = Color.Green; // c = 2`
-              - `enum Color {Red = 1, Green, Blue}
-                 let c: Color = Color.Green; // c = 3`
-              - `enum Color {Red = 1, Green = 2, Blue = 4}
-                 let c: string = Color[2]; // c = "Green"`
+  ```typescript
+  enum Color {Red, Green, Blue}
+  let c: Color = Color.Green; // c = 2
+  ```
+  ```typescript
+  enum Color {Red = 1, Green, Blue}
+  let c: Color = Color.Green; // c = 3
+  ```
+  ```typescript
+  enum Color {Red = 1, Green = 2, Blue = 4}
+  let c: string = Color[2]; // c = "Green"
+  ```
   - Any: `any` no restrictions
   - Object: `Object` for non-primitive values, error if undefined methods/properties are called
   - Void: `void` only `null`[only if --strictNullChecks is not specified] and `undefined` can be used
@@ -46,25 +52,33 @@
 ### Generics
   - Generics are similar to template in C++
   - Examples:
-    - `interface GenericIdentityFn<T> {
+  ```typescript
+    interface GenericIdentityFn<T> {
         (arg: T): T;
       }
       function identity<T>(arg: T): T {
         return arg;
       }
-      let myIdentity: GenericIdentityFn<number> = identity;`
-    - `class GenericNumber<T> {
+      let myIdentity: GenericIdentityFn<number> = identity;
+  ```
+  ```typescript
+    class GenericNumber<T> {
         zeroValue: T;
         add: (x: T, y: T) => T;
-      }`
+      }
   - Constraints(like methods and properties) can be added by extending T to an interface/class
   - Using generic class types:
-    - `function create<T>(c: new() => T): T {
+  ```
+  ```typescript
+    function create<T>(c: new() => T): T {
         return new c();
-      }`
-    - `function create<T>(c: { new(): T; }): T {
+      }
+  ```
+  ```typescript
+    function create<T>(c: { new(): T; }): T {
         return new c();
-      }`
+      }
+  ```
 
 ### Miscellaneous
 
