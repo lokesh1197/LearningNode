@@ -80,6 +80,24 @@
       }
   ```
 
+
+### Enum
+
+  - Constant: `const enum`
+  - Ambient: `declare enum`
+  - Reverse mappings are generated only for number enums
+  - enum keys can be used as types and enums can be used as unions
+  - enum can be accessed like objects
+
+### Advanced Types
+
+	- `&` is used for intersection types and `|` is used for union types
+  - `keyof T` is the index type query operator. For any type T, `keyof T` is the union of known, public property names of T.
+    Example:
+	```typescript
+		let carProps: keyof Car; // the union of ('manufacturer' | 'model' | 'year')
+	```
+
 ### Miscellaneous
 
   - `readonly` is used for properties while `const` is used for variables
